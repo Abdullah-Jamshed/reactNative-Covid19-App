@@ -12,7 +12,7 @@ import Statistic from '../screens/Statistic';
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomNavigation = ({navigation}) => {
-  console.log("navigation ===>>>",navigation);
+  console.log('navigation ===>>>', navigation);
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -20,18 +20,6 @@ const BottomNavigation = ({navigation}) => {
       inactiveColor="#bdbdbd"
       labeled={false}
       barStyle={{backgroundColor: '#fff', paddingBottom: 5}}>
-      {/* <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarLabel: 'Home',
-          //   tabBarLabel: null,
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="card" color={'red'} size={15} />
-          ),
-        }}
-      /> */}
-
       <Tab.Screen
         name="Home"
         component={Home}
@@ -42,11 +30,6 @@ const BottomNavigation = ({navigation}) => {
               name="home-variant"
               color={color}
               size={26}
-              //   style={
-              //     {
-              //       backgroundColor:"red"
-              //     }
-              //   }
             />
           ),
           tabBarColor: 'red',
