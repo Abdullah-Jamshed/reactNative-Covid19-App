@@ -15,6 +15,7 @@ const Statistic = () => {
         <View style={styles.lower}>
           <Text>Statistic</Text>
           <Text>Statistic</Text>
+          <Text>Statistic</Text>
         </View>
       </View>
     </>
