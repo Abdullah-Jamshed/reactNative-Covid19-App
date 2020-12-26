@@ -18,8 +18,6 @@ const Statistic = () => {
           <Text>Statistic</Text>
           <Text>Statistic</Text>
           <Text>Statistic</Text>
-          <Text>Statistic</Text>
-          <Text>Statistic</Text>
         </View>
       </View>
     </>
