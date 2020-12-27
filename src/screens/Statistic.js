@@ -11,6 +11,7 @@ const Statistic = () => {
         </View>
         <View style={styles.upper}>
           <Text style={styles.heading}>Statistic</Text>
+          <Text style={styles.heading}>Statistic</Text>
         </View>
         <View style={styles.lower}>
           <Text>Statistic</Text>
