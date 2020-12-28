@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
           <Header />
-        </View>
+        </View> */}
         <View style={styles.upper}>
           <Text style={styles.heading}>Home</Text>
         </View>
