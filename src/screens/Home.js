@@ -87,8 +87,44 @@ const Home = () => {
                   style={styles.testImage}
                 />
               </View>
-              <View style={{}}>
-                <View style={{flexWrap:"wrap", backgroundColor: 'red'}}>
+              <View style={{width: 200}}>
+                <View style={{backgroundColor: 'red'}}>
+                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
+                    Do your own test
+                  </RPParagraph>
+                  <Text style={{}}>
+                    Follow the instructions to do your own test.
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.testContainer}>
+              <View>
+                <Image
+                  source={require('../assests/healthcare.png')}
+                  style={styles.testImage}
+                />
+              </View>
+              <View style={{width: 200}}>
+                <View style={{backgroundColor: 'red'}}>
+                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
+                    Do your own test
+                  </RPParagraph>
+                  <Text style={{}}>
+                    Follow the instructions to do your own test.
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.testContainer}>
+              <View>
+                <Image
+                  source={require('../assests/healthcare.png')}
+                  style={styles.testImage}
+                />
+              </View>
+              <View style={{width: 200}}>
+                <View style={{backgroundColor: 'red'}}>
                   <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
                     Do your own test
                   </RPParagraph>
@@ -111,14 +147,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   upper: {
-    flex: 1.9,
+    // flex: 5,
     backgroundColor: '#5a17b0',
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     paddingHorizontal: 20,
   },
   lower: {
-    flex: 2,
+    // flex: 1,
     backgroundColor: '#fff',
     padding: 20,
   },
@@ -179,14 +215,14 @@ const styles = StyleSheet.create({
   },
   testContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: 'gray',
     marginTop: 40,
     // justifyContent:"space-between"
   },
   testImage: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
   },
 });
 
