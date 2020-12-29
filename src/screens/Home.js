@@ -50,26 +50,37 @@ const Home = () => {
                 justifyContent: 'space-between',
                 paddingTop: 20,
               }}>
-              <View style={{alignItems: 'center'}}>
+              <View style={{alignItems: 'center', width: 80}}>
                 <Image
                   source={require('../assests/a.png')}
                   style={{width: 70, height: 70}}
                 />
-                <Text style={{fontSize: 12}}>Social Distancing</Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    textAlign: 'center',
+                    fontWeight: '700',
+                  }}>
+                  Avoid Close Contact
+                </Text>
               </View>
-              <View style={{alignItems: 'center'}}>
+              <View style={{alignItems: 'center', width: 80}}>
                 <Image
                   source={require('../assests/wash_hand.png')}
                   style={{width: 70, height: 70}}
                 />
-                <Text style={{fontSize: 12}}>Wash Hands</Text>
+                <Text style={styles.font}>
+                  Clean your Hands Often
+                </Text>
               </View>
-              <View style={{alignItems: 'center'}}>
+              <View style={{alignItems: 'center', width: 80}}>
                 <Image
                   source={require('../assests/medical_mask.png')}
                   style={{width: 70, height: 70}}
                 />
-                <Text style={{fontSize: 12}}>Medical Care</Text>
+                <Text style={styles.font}>
+                  Follow Dr Instructions
+                </Text>
               </View>
             </View>
           </ScrollView>
@@ -146,6 +157,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     marginLeft: 5,
+  },
+  font: {
+    fontSize: 12,
+    textAlign: 'center',
+    fontWeight: '700',
   },
 });
 
