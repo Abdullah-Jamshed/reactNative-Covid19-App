@@ -1,8 +1,18 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
+
 import {Paragraph as RPParagraph, Text as RPText} from 'react-native-paper';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Header from '../components/Header';
 
@@ -21,8 +31,45 @@ const Home = () => {
               or SMS us immediately for help .
             </RPText>
           </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.buttonCall}>
+              <Ionicons name="call" color="#fff" size={15} />
+              <Text style={styles.buttonText}>Call</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonSMS}>
+              <Ionicons name="chatbubble" color="#fff" size={15} />
+              <Text style={styles.buttonText}>SMS</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.lower}>
+          <ScrollView>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+                paddingTop: 20,
+              }}>
+              <View style={{}}>
+                <Image
+                  source={require('../assests/a.png')}
+                  style={{width: 70, height: 70}}
+                />
+              </View>
+              <View style={{}}>
+                <Image
+                  source={require('../assests/wash_hand.png')}
+                  style={{width: 70, height: 70}}
+                />
+              </View>
+              <View style={{}}>
+                <Image
+                  source={require('../assests/medical_mask.png')}
+                  style={{width: 70, height: 70}}
+                />
+              </View>
+            </View>
+          </ScrollView>
           {/* <MaterialCommunityIcons name="home-variant" color={"red"} size={15} /> */}
         </View>
       </View>
@@ -36,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   upper: {
-    flex: 1.6,
+    flex: 1.9,
     backgroundColor: '#5a17b0',
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
@@ -67,6 +114,35 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 0.3,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 10,
+  },
+  buttonCall: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#bf2222',
+    padding: 10,
+    width: 100,
+    borderRadius: 20,
+    alignItems: 'center',
+    margin: 10,
+  },
+  buttonSMS: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#078ab5',
+    padding: 10,
+    width: 100,
+    borderRadius: 20,
+    alignItems: 'center',
+    margin: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    marginLeft: 5,
   },
 });
 
