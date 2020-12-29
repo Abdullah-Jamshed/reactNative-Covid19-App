@@ -42,8 +42,8 @@ const Home = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.lower}>
-          <ScrollView>
+        <ScrollView>
+          <View style={styles.lower}>
             <View
               style={{
                 flexDirection: 'row',
@@ -69,23 +69,37 @@ const Home = () => {
                   source={require('../assests/wash_hand.png')}
                   style={{width: 70, height: 70}}
                 />
-                <Text style={styles.font}>
-                  Clean your Hands Often
-                </Text>
+                <Text style={styles.font}>Clean your Hands Often</Text>
               </View>
               <View style={{alignItems: 'center', width: 80}}>
                 <Image
                   source={require('../assests/medical_mask.png')}
                   style={{width: 70, height: 70}}
                 />
-                <Text style={styles.font}>
-                  Follow Dr Instructions
-                </Text>
+                <Text style={styles.font}>Follow Dr Instructions</Text>
               </View>
             </View>
-          </ScrollView>
-          {/* <MaterialCommunityIcons name="home-variant" color={"red"} size={15} /> */}
-        </View>
+
+            <View style={styles.testContainer}>
+              <View>
+                <Image
+                  source={require('../assests/healthcare.png')}
+                  style={styles.testImage}
+                />
+              </View>
+              <View style={{}}>
+                <View style={{flexWrap:"wrap", backgroundColor: 'red'}}>
+                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
+                    Do your own test
+                  </RPParagraph>
+                  <Text style={{}}>
+                    Follow the instructions to do your own test.
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </View>
     </>
   );
@@ -162,6 +176,17 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     fontWeight: '700',
+  },
+  testContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'gray',
+    marginTop: 40,
+    // justifyContent:"space-between"
+  },
+  testImage: {
+    width: 80,
+    height: 80,
   },
 });
 
