@@ -47,26 +47,29 @@ const Home = () => {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-evenly',
+                justifyContent: 'space-between',
                 paddingTop: 20,
               }}>
-              <View style={{}}>
+              <View style={{alignItems: 'center'}}>
                 <Image
                   source={require('../assests/a.png')}
                   style={{width: 70, height: 70}}
                 />
+                <Text style={{fontSize: 12}}>Social Distancing</Text>
               </View>
-              <View style={{}}>
+              <View style={{alignItems: 'center'}}>
                 <Image
                   source={require('../assests/wash_hand.png')}
                   style={{width: 70, height: 70}}
                 />
+                <Text style={{fontSize: 12}}>Wash Hands</Text>
               </View>
-              <View style={{}}>
+              <View style={{alignItems: 'center'}}>
                 <Image
                   source={require('../assests/medical_mask.png')}
                   style={{width: 70, height: 70}}
                 />
+                <Text style={{fontSize: 12}}>Medical Care</Text>
               </View>
             </View>
           </ScrollView>
