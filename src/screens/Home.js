@@ -87,43 +87,7 @@ const Home = () => {
                   style={styles.testImage}
                 />
               </View>
-              <View style={{width: 200}}>
-                <View style={{backgroundColor: 'red'}}>
-                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
-                    Do your own test
-                  </RPParagraph>
-                  <Text style={{}}>
-                    Follow the instructions to do your own test.
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.testContainer}>
-              <View>
-                <Image
-                  source={require('../assests/healthcare.png')}
-                  style={styles.testImage}
-                />
-              </View>
-              <View style={{width: 200}}>
-                <View style={{backgroundColor: 'red'}}>
-                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
-                    Do your own test
-                  </RPParagraph>
-                  <Text style={{}}>
-                    Follow the instructions to do your own test.
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.testContainer}>
-              <View>
-                <Image
-                  source={require('../assests/healthcare.png')}
-                  style={styles.testImage}
-                />
-              </View>
-              <View style={{width: 200}}>
+              <View style={{width: 280}}>
                 <View style={{backgroundColor: 'red'}}>
                   <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
                     Do your own test
