@@ -81,18 +81,18 @@ const Home = () => {
             </View>
 
             <View style={styles.testContainer}>
-              <View>
+              <View style={{flexShrink: 0}}>
                 <Image
                   source={require('../assests/healthcare.png')}
                   style={styles.testImage}
                 />
               </View>
-              <View style={{width: 280}}>
-                <View style={{backgroundColor: 'red'}}>
-                  <RPParagraph style={{fontSize: 16, fontWeight: '700'}}>
-                    Do your own test
+              <View style={{flexShrink: 1}}>
+                <View style={{marginLeft: 10}}>
+                  <RPParagraph style={{fontSize: 16, fontWeight: '700',color:"#ffff"}}>
+                    Do your own test !
                   </RPParagraph>
-                  <Text style={{}}>
+                  <Text style={{color:"#bfbfbf"}}>
                     Follow the instructions to do your own test.
                   </Text>
                 </View>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   lower: {
     // flex: 1,
-    backgroundColor: '#fff',
+    // backgroundColor: '#dfdf',
     padding: 20,
   },
   heading: {
@@ -179,10 +179,14 @@ const styles = StyleSheet.create({
   },
   testContainer: {
     flexDirection: 'row',
-    // alignItems: 'center',
-    backgroundColor: 'gray',
+    // flexWrap:"wrap",
+    backgroundColor: '#5a17b0',
     marginTop: 40,
-    // justifyContent:"space-between"
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 5,
+    paddingVertical: 20,
+    borderRadius:10,
   },
   testImage: {
     width: 70,
