@@ -96,7 +96,6 @@ const Home = () => {
                     Follow the instructions to do your own test.
                     Follow the instructions to do your own test.
                     Follow the instructions to do your own test.
-                    Follow the instructions to do your own test.
                   </Text>
                 </View>
               </View>
