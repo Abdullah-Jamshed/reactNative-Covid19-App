@@ -34,7 +34,7 @@ const Statistic = () => {
                   style={{
                     // flexDirection: 'row',
                     paddingVertical: 3,
-                    paddingHorizontal: 5,
+                    paddingHorizontal: 8,
                     borderRadius: 100,
                     backgroundColor: '#5a17b0',
                   }}>
@@ -160,6 +160,7 @@ const Statistic = () => {
               source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
               style={{width: 60, height: 60}}
             />
+            
             <Text>Statistic</Text>
           </View>
         </View>
