@@ -8,8 +8,8 @@ const App = () => {
   return (
     <>
       <View style={styles.container}>
-        <Header style={styles.upper} />
-        <Navigator style={styles.lower} />
+        <Header />
+        <Navigator />
       </View>
     </>
   );
@@ -18,15 +18,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  upper: {
-    flex: 1,
-  },
-  lower: {
-    // backgroundColor: '#fff',
-    // marginTop: -20,
-    // borderTopRightRadius: 20,
-    // borderTopLeftRadius: 20,
   },
 });
 

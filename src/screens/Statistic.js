@@ -21,8 +21,6 @@ const Statistic = () => {
               <Text style={styles.heading}>Statistic</Text>
               <View
                 style={{
-                  // width: 80,
-                  // height: 35,
                   borderRadius: 20,
                   backgroundColor: '#fff',
                   flexDirection: 'row',
@@ -32,25 +30,18 @@ const Statistic = () => {
                 }}>
                 <View
                   style={{
-                    // flexDirection: 'row',
                     paddingVertical: 3,
                     paddingHorizontal: 8,
                     borderRadius: 100,
                     backgroundColor: '#5a17b0',
                   }}>
                   <ImageBackground
-                    // resizeMode='cover'
-
                     source={{
                       uri: 'https://www.countryflags.io/pk/shiny/24.png',
                     }}
                     style={{
                       width: 24,
                       height: 24,
-                      overflow: 'hidden',
-                      // borderRadius: 100,
-                      // backgroundColor: 'purple',
-                      // padding: 10,
                     }}
                   />
                 </View>
@@ -160,7 +151,7 @@ const Statistic = () => {
               source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
               style={{width: 60, height: 60}}
             />
-            
+
             <Text>Statistic</Text>
           </View>
         </View>
@@ -181,14 +172,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   lower: {
-    // flex: 1,
+    // height: "100%",
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
     padding: 20,
-  },
-  header: {
-    flex: 0.3,
   },
   heading: {
     fontSize: 25,
