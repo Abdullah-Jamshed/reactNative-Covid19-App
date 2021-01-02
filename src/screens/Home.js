@@ -89,12 +89,13 @@ const Home = () => {
               </View>
               <View style={{flexShrink: 1}}>
                 <View style={{marginLeft: 10}}>
-                  <RPParagraph style={{fontSize: 16, fontWeight: '700',color:"#ffff"}}>
+                  <RPParagraph
+                    style={{fontSize: 16, fontWeight: '700', color: '#ffff'}}>
                     Do your own test !
                   </RPParagraph>
-                  <Text style={{color:"#bfbfbf"}}>
-                    Follow the instructions to do your own test.
-                    Follow the instructions to do your own test.
+                  <Text style={{color: '#bfbfbf'}}>
+                    Follow the instructions to do your own test. Follow the
+                    instructions to do your own test.
                   </Text>
                 </View>
               </View>
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 5,
     paddingVertical: 20,
-    borderRadius:10,
+    borderRadius: 10,
   },
   testImage: {
     width: 70,
