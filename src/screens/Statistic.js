@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   SafeAreaView,
@@ -7,10 +7,71 @@ import {
   Text,
   Image,
   ImageBackground,
+  Button as BB,
+  TouchableWithoutFeedback,
 } from 'react-native';
+
+import {Button, Menu, Divider, Provider} from 'react-native-paper';
+
 import Header from '../components/Header';
+import Dropdown from '../components/Dropdown';
 
 const Statistic = () => {
+  const [visible, setVisible] = useState(false);
+
+  const openMenu = () => {
+    console.log(':open Menu');
+    setVisible(true);
+  };
+
+  const closeMenu = () => setVisible(false);
+
+  const AA = () => {
+    return (
+      <TouchableWithoutFeedback
+        onPress={openMenu}
+        style={{
+          // borderRadius: 20,
+          // backgroundColor: '#fff',
+          // flexDirection: 'row',
+          // paddingVertical: 5,
+          // paddingHorizontal: 8,
+          // alignItems: 'center',
+        }}>
+        <View
+          style={{
+            borderRadius: 20,
+            backgroundColor: '#fff',
+            flexDirection: 'row',
+            paddingVertical: 5,
+            paddingHorizontal: 8,
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              paddingVertical: 3,
+              paddingHorizontal: 8,
+              borderRadius: 100,
+              backgroundColor: '#5a17b0',
+            }}>
+            <ImageBackground
+              source={{
+                uri: 'https://www.countryflags.io/pk/shiny/24.png',
+              }}
+              style={{
+                width: 24,
+                height: 24,
+              }}
+            />
+          </View>
+          <View style={{marginHorizontal: 10}}>
+            <Text style={{fontWeight: '700'}}>PK</Text>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  };
+
   return (
     <>
       <ScrollView>
@@ -19,7 +80,8 @@ const Statistic = () => {
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.heading}>Statistic</Text>
-              <View
+
+              {/* <View
                 style={{
                   borderRadius: 20,
                   backgroundColor: '#fff',
@@ -44,11 +106,25 @@ const Statistic = () => {
                       height: 24,
                     }}
                   />
-                </View>
+                </View> 
                 <View style={{marginHorizontal: 10}}>
                   <Text style={{fontWeight: '700'}}>PK</Text>
-                </View>
+                </View>*/}
+
+              <View style={{}}>
+                <Menu
+                  visible={visible}
+                  onDismiss={closeMenu}
+                  // anchor={<A onPress={openMenu} />}>
+                  anchor={<AA />}>
+                  <Menu.Item onPress={() => {}} title="Item 1" />
+                  <Menu.Item onPress={() => {}} title="Item 2" />
+                  <Divider />
+                  <Menu.Item onPress={() => {}} title="Item 3" />
+                </Menu>
               </View>
+
+              {/* </View> */}
             </View>
 
             <View style={styles.statsContainer}>
@@ -152,7 +228,23 @@ const Statistic = () => {
               style={{width: 60, height: 60}}
             />
 
-            <Text>Statistic</Text>
+            {/* <Text>Statistic</Text> */}
+            {/* <View
+                style={{
+                  paddingTop: 50,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                }}>
+                <Menu
+                  visible={visible}
+                  onDismiss={closeMenu}
+                  anchor={<Text onPress={openMenu}>PK</Text>}>
+                  <Menu.Item onPress={() => {}} title="Item 1" />
+                  <Menu.Item onPress={() => {}} title="Item 2" />
+                  <Divider />
+                  <Menu.Item onPress={() => {}} title="Item 3" />
+                </Menu>
+              </View> */}
           </View>
         </View>
       </ScrollView>

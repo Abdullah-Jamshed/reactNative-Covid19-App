@@ -11,8 +11,7 @@ import Statistic from '../screens/Statistic';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const BottomNavigation = ({navigation}) => {
-  console.log('navigation ===>>>', navigation);
+const BottomNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"

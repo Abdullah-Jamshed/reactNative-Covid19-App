@@ -4,13 +4,19 @@ import Header from './src/components/Header';
 
 import Navigator from './src/configs/Navigator';
 
+import Dropdown from "./src/components/Dropdown"
+
+import {Provider} from 'react-native-paper';
+
 const App = () => {
   return (
     <>
-      <View style={styles.container}>
-        <Header />
-        <Navigator />
-      </View>
+      <Provider>
+        <View style={styles.container}>
+          <Header />
+          <Navigator />
+        </View>
+      </Provider>
     </>
   );
 };
