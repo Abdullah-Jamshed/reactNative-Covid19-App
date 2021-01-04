@@ -119,6 +119,7 @@ const Statistic = () => {
                   anchor={<AA />}>
                   <Menu.Item onPress={() => {}} title="Item 1" />
                   <Menu.Item onPress={() => {}} title="Item 2" />
+                  <Menu.Item onPress={() => {}} title="Item 2" />
                   <Divider />
                   <Menu.Item onPress={() => {}} title="Item 3" />
                 </Menu>
