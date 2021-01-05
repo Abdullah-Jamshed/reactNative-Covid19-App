@@ -19,63 +19,6 @@ import {Menu, Divider} from 'react-native-paper';
 import Dropdown from '../components/Dropdown';
 
 const Statistic = ({menuFlag, closeMenu}) => {
-  // const [visible, setVisible] = useState(false);
-
-  // const openMenu = () => {
-  //   // console.log(':open Menu');
-  //   setVisible(true);
-  // };
-
-  // const closeMenu = () => setVisible(false);
-
-  const AA = () => {
-    return (
-      <TouchableWithoutFeedback
-        onPress={openMenu}
-        style={
-          {
-            // borderRadius: 20,
-            // backgroundColor: '#fff',
-            // flexDirection: 'row',
-            // paddingVertical: 5,
-            // paddingHorizontal: 8,
-            // alignItems: 'center',
-          }
-        }>
-        <View
-          style={{
-            borderRadius: 20,
-            backgroundColor: '#fff',
-            flexDirection: 'row',
-            paddingVertical: 5,
-            paddingHorizontal: 8,
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              paddingVertical: 3,
-              paddingHorizontal: 8,
-              borderRadius: 100,
-              backgroundColor: '#5a17b0',
-            }}>
-            <ImageBackground
-              source={{
-                uri: 'https://www.countryflags.io/pk/shiny/24.png',
-              }}
-              style={{
-                width: 24,
-                height: 24,
-              }}
-            />
-          </View>
-          <View style={{marginHorizontal: 10}}>
-            <Text style={{fontWeight: '700'}}>PK</Text>
-          </View>
-        </View>
-      </TouchableWithoutFeedback>
-    );
-  };
-
   return (
     <>
       <ScrollView
@@ -100,8 +43,6 @@ const Statistic = ({menuFlag, closeMenu}) => {
                   <Menu.Item onPress={() => {}} title="Item 3" />
                 </Menu>
               </View>
-
-              {/* </View> */}
             </View>
 
             <View style={styles.statsContainer}>
@@ -219,10 +160,8 @@ const styles = StyleSheet.create({
   upper: {
     backgroundColor: '#5a17b0',
     paddingHorizontal: 20,
-    // flex: 1,
   },
   lower: {
-    // flex: 2,
     height: '100%',
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
@@ -246,7 +185,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    // setName: (value) => dispatch(setName(value)),
     closeMenu: (value) => dispatch(closeMenu(value)),
   };
 };
