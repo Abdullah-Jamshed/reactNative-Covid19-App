@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   View,
   Text,
@@ -13,22 +12,21 @@ import {
 
 import {connect} from 'react-redux';
 
-import {Button, Menu, Divider, Provider} from 'react-native-paper';
+import {openMenu, closeMenu} from '../store/actions/subRedcuerActions';
 
-import Header from '../components/Header';
+import {Menu, Divider} from 'react-native-paper';
+
 import Dropdown from '../components/Dropdown';
 
-const Statistic = ({name}) => {
-  console.log('Redux Props', name);
+const Statistic = ({menuFlag, closeMenu}) => {
+  // const [visible, setVisible] = useState(false);
 
-  const [visible, setVisible] = useState(false);
+  // const openMenu = () => {
+  //   // console.log(':open Menu');
+  //   setVisible(true);
+  // };
 
-  const openMenu = () => {
-    // console.log(':open Menu');
-    setVisible(true);
-  };
-
-  const closeMenu = () => setVisible(false);
+  // const closeMenu = () => setVisible(false);
 
   const AA = () => {
     return (
@@ -92,8 +90,8 @@ const Statistic = ({name}) => {
 
               <View style={{}}>
                 <Menu
-                  visible={visible}
-                  onDismiss={closeMenu}
+                  visible={menuFlag}
+                  onDismiss={() => closeMenu(false)}
                   anchor={<Dropdown />}>
                   <Menu.Item onPress={() => {}} title="Item 1" />
                   <Menu.Item onPress={() => {}} title="Item 2" />
@@ -242,14 +240,14 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    name: state.subReducer.name,
+    menuFlag: state.subReducer.menuFlag,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     // setName: (value) => dispatch(setName(value)),
+    closeMenu: (value) => dispatch(closeMenu(value)),
   };
 };
 

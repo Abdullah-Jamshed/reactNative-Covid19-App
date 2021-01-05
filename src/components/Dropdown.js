@@ -1,27 +1,22 @@
-import * as React from 'react';
-import {TouchableWithoutFeedback, View,ImageBackground,Text} from 'react-native';
-import {Button, Menu, Divider, Provider} from 'react-native-paper';
+import React from 'react';
 
-const Dropdown = () => {
-  const [visible, setVisible] = React.useState(false);
 
-  const openMenu = () => setVisible(true);
+import {
+  TouchableWithoutFeedback,
+  View,
+  ImageBackground,
+  Text,
+} from 'react-native';
 
-  const closeMenu = () => setVisible(false);
 
+
+import {connect} from 'react-redux';
+import {openMenu} from '../store/actions/subRedcuerActions';
+
+
+const Dropdown = ({openMenu}) => {
   return (
-    <TouchableWithoutFeedback
-      onPress={openMenu}
-      style={
-        {
-          // borderRadius: 20,
-          // backgroundColor: '#fff',
-          // flexDirection: 'row',
-          // paddingVertical: 5,
-          // paddingHorizontal: 8,
-          // alignItems: 'center',
-        }
-      }>
+    <TouchableWithoutFeedback onPress={() => openMenu(true)} style={{}}>
       <View
         style={{
           borderRadius: 20,
@@ -56,4 +51,13 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openMenu: (value) => dispatch(openMenu(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dropdown);

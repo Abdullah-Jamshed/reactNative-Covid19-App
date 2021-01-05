@@ -1,13 +1,18 @@
 const INITIAL_STATE = {
-  name: 'Jamshed',
+  menuFlag: false,
 };
 
 const subReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ACT':
+    case 'OPENMENU':
       return {
         ...state,
-        name: 'Abdullah',
+        menuFlag: action.payload.flag,
+      };
+    case 'CLOSEMENU':
+      return {
+        ...state,
+        menuFlag: action.payload.flag,
       };
     default:
       return state;
