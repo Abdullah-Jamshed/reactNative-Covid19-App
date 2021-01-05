@@ -11,16 +11,20 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import {connect} from 'react-redux';
+
 import {Button, Menu, Divider, Provider} from 'react-native-paper';
 
 import Header from '../components/Header';
 import Dropdown from '../components/Dropdown';
 
-const Statistic = () => {
+const Statistic = ({name}) => {
+  console.log('Redux Props', name);
+
   const [visible, setVisible] = useState(false);
 
   const openMenu = () => {
-    console.log(':open Menu');
+    // console.log(':open Menu');
     setVisible(true);
   };
 
@@ -30,14 +34,16 @@ const Statistic = () => {
     return (
       <TouchableWithoutFeedback
         onPress={openMenu}
-        style={{
-          // borderRadius: 20,
-          // backgroundColor: '#fff',
-          // flexDirection: 'row',
-          // paddingVertical: 5,
-          // paddingHorizontal: 8,
-          // alignItems: 'center',
-        }}>
+        style={
+          {
+            // borderRadius: 20,
+            // backgroundColor: '#fff',
+            // flexDirection: 'row',
+            // paddingVertical: 5,
+            // paddingHorizontal: 8,
+            // alignItems: 'center',
+          }
+        }>
         <View
           style={{
             borderRadius: 20,
@@ -74,49 +80,21 @@ const Statistic = () => {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          flex: 1,
+        }}>
         <View style={styles.container}>
           <View style={styles.upper}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.heading}>Statistic</Text>
 
-              {/* <View
-                style={{
-                  borderRadius: 20,
-                  backgroundColor: '#fff',
-                  flexDirection: 'row',
-                  paddingVertical: 5,
-                  paddingHorizontal: 8,
-                  alignItems: 'center',
-                }}>
-                <View
-                  style={{
-                    paddingVertical: 3,
-                    paddingHorizontal: 8,
-                    borderRadius: 100,
-                    backgroundColor: '#5a17b0',
-                  }}>
-                  <ImageBackground
-                    source={{
-                      uri: 'https://www.countryflags.io/pk/shiny/24.png',
-                    }}
-                    style={{
-                      width: 24,
-                      height: 24,
-                    }}
-                  />
-                </View> 
-                <View style={{marginHorizontal: 10}}>
-                  <Text style={{fontWeight: '700'}}>PK</Text>
-                </View>*/}
-
               <View style={{}}>
                 <Menu
                   visible={visible}
                   onDismiss={closeMenu}
-                  // anchor={<A onPress={openMenu} />}>
-                  anchor={<AA />}>
+                  anchor={<Dropdown />}>
                   <Menu.Item onPress={() => {}} title="Item 1" />
                   <Menu.Item onPress={() => {}} title="Item 2" />
                   <Menu.Item onPress={() => {}} title="Item 2" />
@@ -228,24 +206,6 @@ const Statistic = () => {
               source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
               style={{width: 60, height: 60}}
             />
-
-            {/* <Text>Statistic</Text> */}
-            {/* <View
-                style={{
-                  paddingTop: 50,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                }}>
-                <Menu
-                  visible={visible}
-                  onDismiss={closeMenu}
-                  anchor={<Text onPress={openMenu}>PK</Text>}>
-                  <Menu.Item onPress={() => {}} title="Item 1" />
-                  <Menu.Item onPress={() => {}} title="Item 2" />
-                  <Divider />
-                  <Menu.Item onPress={() => {}} title="Item 3" />
-                </Menu>
-              </View> */}
           </View>
         </View>
       </ScrollView>
@@ -255,17 +215,17 @@ const Statistic = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 2,
-    // backgroundColor: '#fff',
+    flex: 1,
     backgroundColor: '#5a17b0',
   },
   upper: {
-    // flex: 1,
     backgroundColor: '#5a17b0',
     paddingHorizontal: 20,
+    // flex: 1,
   },
   lower: {
-    // height: "100%",
+    // flex: 2,
+    height: '100%',
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
@@ -281,4 +241,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Statistic;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    name: state.subReducer.name,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // setName: (value) => dispatch(setName(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Statistic);

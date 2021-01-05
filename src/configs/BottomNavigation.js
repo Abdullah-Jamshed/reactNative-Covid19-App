@@ -57,23 +57,23 @@ const BottomNavigation = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-  },
-  upper: {
-    flex: 1,
-    backgroundColor: '#8456bf',
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-  },
-  lower: {
-    flex: 2,
-    backgroundColor: '#fff',
-    // marginTop: -20,
-    // borderTopRightRadius: 20,
-    // borderTopLeftRadius: 20,
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: 'red',
+  // },
+  // upper: {
+  //   flex: 1,
+  //   backgroundColor: '#8456bf',
+  //   borderBottomLeftRadius: 40,
+  //   borderBottomRightRadius: 40,
+  // },
+  // lower: {
+  //   flex: 2,
+  //   backgroundColor: '#fff',
+  //   marginTop: -20,
+  //   borderTopRightRadius: 20,
+  //   borderTopLeftRadius: 20,
+  // },
   activeTab: {
     backgroundColor: 'red',
     width: 50,
