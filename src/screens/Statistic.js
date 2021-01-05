@@ -1,30 +1,50 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
 import {
   StyleSheet,
   ScrollView,
+  SafeAreaView,
   View,
   Text,
   Image,
-  ImageBackground,
   Button as BB,
-  TouchableWithoutFeedback,
+  FlatList,
 } from 'react-native';
 
-import {connect} from 'react-redux';
-
-import {openMenu, closeMenu} from '../store/actions/subRedcuerActions';
-
 import {Menu, Divider} from 'react-native-paper';
-
 import Dropdown from '../components/Dropdown';
 
+import {connect} from 'react-redux';
+import {closeMenu, locationSet} from '../store/actions/subRedcuerActions';
+
+import countryListApi from '../api/countryListApi';
+
 const Statistic = ({menuFlag, closeMenu}) => {
+  const [countriesList, setCountriesList] = useState([]);
+
+  const fetchCountriesList = async () => {
+    const {data} = await countryListApi.get(
+      '/all?fields=name;alpha2Code;flag;',
+    );
+    setCountriesList(data);
+  };
+
+  useEffect(() => {
+    fetchCountriesList();
+  }, []);
+
+  // useEffect(() => {
+  //   countriesList.length !== 0
+  //     ? console.log('===>', countriesList[0])
+  //     : console.log('dasd');
+  // }, [countriesList]);
+
   return (
     <>
-      <ScrollView
+      {/* <ScrollView
         contentContainerStyle={{
           flex: 1,
-        }}>
+        }}> */}
         <View style={styles.container}>
           <View style={styles.upper}>
             <View
@@ -35,12 +55,33 @@ const Statistic = ({menuFlag, closeMenu}) => {
                 <Menu
                   visible={menuFlag}
                   onDismiss={() => closeMenu(false)}
-                  anchor={<Dropdown />}>
-                  <Menu.Item onPress={() => {}} title="Item 1" />
-                  <Menu.Item onPress={() => {}} title="Item 2" />
-                  <Menu.Item onPress={() => {}} title="Item 2" />
-                  <Divider />
-                  <Menu.Item onPress={() => {}} title="Item 3" />
+                  anchor={<Dropdown />}
+                  style={{width: 200}}>
+                  <Menu.Item onPress={() => {}} title="Global" />
+
+                  {countriesList !== 0 && (
+                    // countriesList.map((item) => {
+                    // return <Menu.Item key={item.} onPress={() => {}} title={item.name} />;
+                    //})
+                    <SafeAreaView style={{flex: 1}}>
+                      <FlatList
+                        data={countriesList}
+                        renderItem={({item}) => (
+                          <Menu.Item
+                            onPress={() => {
+                              locationSet(item);
+                              closeMenu(false);
+                            }}
+                            title={item.name}
+                          />
+                        )}
+                        keyExtractor={(item) => item.alpha2Code}
+                      />
+                    </SafeAreaView>
+                  )}
+
+                  {/* <Divider />
+                  <Menu.Item onPress={() => {}} title="Item 3" /> */}
                 </Menu>
               </View>
             </View>
@@ -147,7 +188,7 @@ const Statistic = ({menuFlag, closeMenu}) => {
             />
           </View>
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </>
   );
 };
@@ -181,11 +222,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     menuFlag: state.subReducer.menuFlag,
+    location: state.subReducer.location,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     closeMenu: (value) => dispatch(closeMenu(value)),
+    locationSet: (value) => dispatch(locationSet(value)),
   };
 };
 

@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
 
 import {
   TouchableWithoutFeedback,
@@ -8,13 +7,15 @@ import {
   Text,
 } from 'react-native';
 
-
-
 import {connect} from 'react-redux';
 import {openMenu} from '../store/actions/subRedcuerActions';
 
+const Dropdown = ({openMenu, location}) => {
 
-const Dropdown = ({openMenu}) => {
+  useEffect(() => {
+    console.log("==>",location);
+  }, [location]);
+
   return (
     <TouchableWithoutFeedback onPress={() => openMenu(true)} style={{}}>
       <View
@@ -33,15 +34,27 @@ const Dropdown = ({openMenu}) => {
             borderRadius: 100,
             backgroundColor: '#5a17b0',
           }}>
-          <ImageBackground
-            source={{
-              uri: 'https://www.countryflags.io/pk/shiny/24.png',
-            }}
-            style={{
-              width: 24,
-              height: 24,
-            }}
-          />
+          {location === 'global' ? (
+            <ImageBackground
+              source={{
+                uri: 'https://www.countryflags.io/au/shiny/24.png',
+              }}
+              style={{
+                width: 24,
+                height: 24,
+              }}
+            />
+          ) : (
+            <ImageBackground
+              source={{
+                uri: `https://www.countryflags.io/pk/shiny/24.png`,
+              }}
+              style={{
+                width: 24,
+                height: 24,
+              }}
+            />
+          )}
         </View>
         <View style={{marginHorizontal: 10}}>
           <Text style={{fontWeight: '700'}}>PK</Text>
@@ -52,7 +65,9 @@ const Dropdown = ({openMenu}) => {
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    location: state.subReducer.location,
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   return {

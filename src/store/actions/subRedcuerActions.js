@@ -8,5 +8,10 @@ const closeMenu = (flag) => {
     dispatch({type: 'CLOSEMENU', payload: {flag}});
   };
 };
+const locationSet = (locationValue) => {
+  return (dispatch) => {
+    dispatch({type: 'LOCATION', payload: {locationValue}});
+  };
+};
 
-export {openMenu, closeMenu};
+export {openMenu, closeMenu, locationSet};

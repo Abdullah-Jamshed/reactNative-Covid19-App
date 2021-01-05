@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   menuFlag: false,
+  location:"global"
 };
 
 const subReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,11 @@ const subReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         menuFlag: action.payload.flag,
+      };
+    case 'LOCATION':
+      return {
+        ...state,
+        location: action.payload.location,
       };
     default:
       return state;
