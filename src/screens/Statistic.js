@@ -19,15 +19,33 @@ import {connect} from 'react-redux';
 import {closeMenu, locationSet} from '../store/actions/subRedcuerActions';
 
 import countryListApi from '../api/countryListApi';
+import covidApi from '../api/covidApi';
 
-const Statistic = ({menuFlag, closeMenu, locationSetValue}) => {
+const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
   const [countriesList, setCountriesList] = useState([]);
+
+  const [covidStatics, setCovidStatics] = useState(null);
 
   const fetchCountriesList = async () => {
     const {data} = await countryListApi.get(
       '/all?fields=name;alpha2Code;flag;',
     );
     setCountriesList(data);
+  };
+  const fetchCovidData = async () => {
+    if (location === 'global') {
+      try {
+        const {data} = await covidApi.get(`/global/`);
+      } catch {
+        console.log('failed');
+      }
+    } else {
+      try {
+        const {data} = await covidApi.get(`/${location.alpha2Code}/`);
+      } catch {
+        console.log('failed');
+      }
+    }
   };
 
   useEffect(() => {
@@ -38,11 +56,9 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue}) => {
     fetchCountriesList();
   }, []);
 
-  // useEffect(() => {
-  //   countriesList.length !== 0
-  //     ? console.log('===>', countriesList[0])
-  //     : console.log('dasd');
-  // }, [countriesList]);
+  useEffect(() => {
+    fetchCovidData();
+  }, [location]);
 
   return (
     <>
@@ -79,7 +95,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue}) => {
                       renderItem={({item}) => (
                         <Menu.Item
                           onPress={() => {
-                            console.log(item);
                             locationSetValue(item);
                             closeMenu(false);
                           }}

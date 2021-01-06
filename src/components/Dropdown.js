@@ -1,13 +1,6 @@
 import React, {useEffect} from 'react';
-import {SvgUri} from 'react-native-svg';
 
-import {
-  TouchableWithoutFeedback,
-  View,
-  ImageBackground,
-  Text,
-  Image,
-} from 'react-native';
+import {TouchableWithoutFeedback, View, Text, Image} from 'react-native';
 
 import {connect} from 'react-redux';
 import {openMenu} from '../store/actions/subRedcuerActions';
