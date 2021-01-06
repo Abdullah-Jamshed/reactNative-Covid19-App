@@ -36,17 +36,23 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
     if (location === 'global') {
       try {
         const {data} = await covidApi.get(`/global/`);
+        setCovidStatics(data);
       } catch {
         console.log('failed');
       }
     } else {
       try {
         const {data} = await covidApi.get(`/${location.alpha2Code}/`);
+        setCovidStatics(data);
       } catch {
         console.log('failed');
       }
     }
   };
+
+  useEffect(() => {
+    console.log(covidStatics.totalConfirmedCases);
+  }, [covidStatics]);
 
   useEffect(() => {
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
@@ -122,7 +128,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   borderRadius: 20,
                 }}>
                 <Text style={styles.boxHeading}>Afftected</Text>
-                <Text style={styles.numbers}>99,00000</Text>
+                <Text style={styles.numbers}>
+                  {covidStatics
+                    ? `${covidStatics.stats.totalConfirmedCases}`
+                    : '00'}
+                </Text>
               </View>
               <View
                 style={{
@@ -134,7 +144,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   borderRadius: 20,
                 }}>
                 <Text style={styles.boxHeading}>Death</Text>
-                <Text style={styles.numbers}>99,00000</Text>
+                <Text style={styles.numbers}>
+                  {covidStatics
+                    ? `${covidStatics.stats.totalDeaths}`
+                    : '00'}
+                </Text>
               </View>
             </View>
 
@@ -153,8 +167,12 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={styles.boxHeading}>Death</Text>
-                <Text style={styles.numbers}>99,00000</Text>
+                <Text style={styles.boxHeading}>Recovered</Text>
+                <Text style={styles.numbers}>
+                  {covidStatics
+                    ? `${covidStatics.stats.totalRecoveredCases}`
+                    : '00'}
+                </Text>
               </View>
               <View
                 style={{
@@ -165,8 +183,12 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={styles.boxHeading}>Death</Text>
-                <Text style={styles.numbers}>99,00000</Text>
+                <Text style={styles.boxHeading}>Active</Text>
+                <Text style={styles.numbers}>
+                  {covidStatics
+                    ? `${covidStatics.stats.newlyConfirmedCases}`
+                    : '00'}
+                </Text>
               </View>
               <View
                 style={{
@@ -177,8 +199,12 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={styles.boxHeading}>Death</Text>
-                <Text style={styles.numbers}>99,00000</Text>
+                <Text style={styles.boxHeading}>Serious</Text>
+                <Text style={styles.numbers}>
+                  {covidStatics
+                    ? `${Math.ceil(((covidStatics.stats.newlyConfirmedCases)*10)/100)}`
+                    : '00'}
+                </Text>
               </View>
             </View>
           </View>
