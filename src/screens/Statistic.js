@@ -86,9 +86,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 />
 
                 {countriesList !== 0 && (
-                  // countriesList.map((item) => {
-                  // return <Menu.Item key={item.} onPress={() => {}} title={item.name} />;
-                  //})
                   <SafeAreaView style={{flex: 1}}>
                     <FlatList
                       data={countriesList}
@@ -105,9 +102,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                     />
                   </SafeAreaView>
                 )}
-
-                {/* <Divider />
-                  <Menu.Item onPress={() => {}} title="Item 3" /> */}
               </Menu>
             </View>
           </View>
@@ -127,12 +121,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={{color: '#fff', fontWeight: '700'}}>
-                  Afftected
-                </Text>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>
-                  99,00000
-                </Text>
+                <Text style={styles.boxHeading}>Afftected</Text>
+                <Text style={styles.numbers}>99,00000</Text>
               </View>
               <View
                 style={{
@@ -143,10 +133,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={{color: '#fff', fontWeight: '700'}}>Death</Text>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>
-                  99,00000
-                </Text>
+                <Text style={styles.boxHeading}>Death</Text>
+                <Text style={styles.numbers}>99,00000</Text>
               </View>
             </View>
 
@@ -165,10 +153,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={{color: '#fff', fontWeight: '700'}}>Death</Text>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>
-                  99,00000
-                </Text>
+                <Text style={styles.boxHeading}>Death</Text>
+                <Text style={styles.numbers}>99,00000</Text>
               </View>
               <View
                 style={{
@@ -179,10 +165,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={{color: '#fff', fontWeight: '700'}}>Death</Text>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>
-                  99,00000
-                </Text>
+                <Text style={styles.boxHeading}>Death</Text>
+                <Text style={styles.numbers}>99,00000</Text>
               </View>
               <View
                 style={{
@@ -193,10 +177,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                   padding: 10,
                   borderRadius: 20,
                 }}>
-                <Text style={{color: '#fff', fontWeight: '700'}}>Death</Text>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>
-                  99,00000
-                </Text>
+                <Text style={styles.boxHeading}>Death</Text>
+                <Text style={styles.numbers}>99,00000</Text>
               </View>
             </View>
           </View>
@@ -237,6 +219,15 @@ const styles = StyleSheet.create({
   },
   statsContainer: {
     marginTop: 20,
+  },
+  numbers: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  boxHeading: {
+    color: '#fff',
+    fontWeight: '700',
   },
 });
 
