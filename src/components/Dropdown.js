@@ -1,21 +1,18 @@
 import React, {useEffect} from 'react';
+import {SvgUri} from 'react-native-svg';
 
 import {
   TouchableWithoutFeedback,
   View,
   ImageBackground,
   Text,
+  Image,
 } from 'react-native';
 
 import {connect} from 'react-redux';
 import {openMenu} from '../store/actions/subRedcuerActions';
 
-const Dropdown = ({openMenu, location}) => {
-
-  useEffect(() => {
-    console.log("==>",location);
-  }, [location]);
-
+const Dropdown = ({openMenu, location, flagName}) => {
   return (
     <TouchableWithoutFeedback onPress={() => openMenu(true)} style={{}}>
       <View
@@ -29,35 +26,31 @@ const Dropdown = ({openMenu, location}) => {
         }}>
         <View
           style={{
-            paddingVertical: 3,
-            paddingHorizontal: 8,
+            padding: 3,
             borderRadius: 100,
-            backgroundColor: '#5a17b0',
           }}>
           {location === 'global' ? (
-            <ImageBackground
+            <Image
               source={{
-                uri: 'https://www.countryflags.io/au/shiny/24.png',
+                uri: `https://www.clipartmax.com/png/middle/271-2718179_global-icon-page-international-air-transport-association.png`,
               }}
-              style={{
-                width: 24,
-                height: 24,
-              }}
+              style={{width: 25, height: 25, borderRadius: 100}}
             />
           ) : (
-            <ImageBackground
+            <Image
               source={{
-                uri: `https://www.countryflags.io/pk/shiny/24.png`,
+                uri: `https://assets.thebasetrip.com/api/v2/countries/flags/${flagName}.png`,
               }}
-              style={{
-                width: 24,
-                height: 24,
-              }}
+              style={{width: 25, height: 25, borderRadius: 100}}
             />
           )}
         </View>
         <View style={{marginHorizontal: 10}}>
-          <Text style={{fontWeight: '700'}}>PK</Text>
+          {location === 'global' ? (
+            <Text style={{fontWeight: '700'}}>GB</Text>
+          ) : (
+            <Text style={{fontWeight: '700'}}>{location.alpha2Code}</Text>
+          )}
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -67,6 +60,7 @@ const Dropdown = ({openMenu, location}) => {
 const mapStateToProps = (state) => {
   return {
     location: state.subReducer.location,
+    flagName: state.subReducer.flagName,
   };
 };
 const mapDispatchToProps = (dispatch) => {

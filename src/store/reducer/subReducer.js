@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   menuFlag: false,
-  location:"global"
+  location: 'global',
 };
 
 const subReducer = (state = INITIAL_STATE, action) => {
@@ -16,9 +16,13 @@ const subReducer = (state = INITIAL_STATE, action) => {
         menuFlag: action.payload.flag,
       };
     case 'LOCATION':
+      const flagName =
+        action.payload.locationValue.name &&
+        action.payload.locationValue.name.replace(/\s/g, '').toLowerCase();
       return {
         ...state,
-        location: action.payload.location,
+        location: action.payload.locationValue,
+        flagName: flagName,
       };
     default:
       return state;
