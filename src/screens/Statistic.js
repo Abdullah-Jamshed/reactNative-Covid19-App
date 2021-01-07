@@ -169,7 +169,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       )}
                     />
                   ) : (
-                    '00'
+                    '0'
                   )}
                 </Text>
               </View>
@@ -208,7 +208,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       )}
                     />
                   ) : (
-                    '00'
+                    '0'
                   )}
                 </Text>
               </View>
@@ -259,7 +259,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       )}
                     />
                   ) : (
-                    '00'
+                    '0'
                   )}
                 </Text>
               </View>
@@ -302,7 +302,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       )}
                     />
                   ) : (
-                    '00'
+                    '0'
                   )}
                 </Text>
               </View>
@@ -351,7 +351,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       )}
                     />
                   ) : (
-                    '00'
+                    '0'
                   )}
                 </Text>
               </View>
