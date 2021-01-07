@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {CountUp} from 'use-count-up';
 
 import {
   StyleSheet,
@@ -50,8 +51,18 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
     }
   };
 
+  const numbersSuffix = (digitsValue) => {
+    if (digitsValue >= 1000) {
+      const value = Math.round(digitsValue / 1000);
+      return value;
+    } else {
+      const value = Math.ceil(digitsValue);
+      return value;
+    }
+  };
+
   useEffect(() => {
-    console.log(covidStatics.totalConfirmedCases);
+    covidStatics && console.log(covidStatics.totalConfirmedCases);
   }, [covidStatics]);
 
   useEffect(() => {
@@ -64,6 +75,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
 
   useEffect(() => {
     fetchCovidData();
+    console.log(location);
   }, [location]);
 
   return (
@@ -129,9 +141,36 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 }}>
                 <Text style={styles.boxHeading}>Afftected</Text>
                 <Text style={styles.numbers}>
-                  {covidStatics
-                    ? `${covidStatics.stats.totalConfirmedCases}`
-                    : '00'}
+                  {covidStatics ? (
+                    <CountUp
+                      thousandsSeparator=","
+                      shouldUseToLocaleString={true}
+                      toLocaleStringParams={{
+                        locale: '',
+                        options: {
+                          // style: '',
+                          // currency: '',
+                          // maximumFractionDigits: 2,
+                        },
+                      }}
+                      fallbackSuffix={
+                        covidStatics.stats.totalConfirmedCases >= 1000
+                          ? 'K'
+                          : ''
+                      }
+                      isCounting={true}
+                      start={0}
+                      end={numbersSuffix(
+                        covidStatics.stats.totalConfirmedCases,
+                      )}
+                      duration={2.2}
+                      autoResetKey={numbersSuffix(
+                        covidStatics.stats.totalConfirmedCases,
+                      )}
+                    />
+                  ) : (
+                    '00'
+                  )}
                 </Text>
               </View>
               <View
@@ -145,9 +184,32 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 }}>
                 <Text style={styles.boxHeading}>Death</Text>
                 <Text style={styles.numbers}>
-                  {covidStatics
-                    ? `${covidStatics.stats.totalDeaths}`
-                    : '00'}
+                  {covidStatics ? (
+                    <CountUp
+                      thousandsSeparator=","
+                      shouldUseToLocaleString={true}
+                      toLocaleStringParams={{
+                        locale: 'de-DE',
+                        options: {
+                          style: 'currency',
+                          currency: 'EUR',
+                          maximumFractionDigits: 2,
+                        },
+                      }}
+                      fallbackSuffix={
+                        covidStatics.stats.totalDeaths >= 1000 ? 'K' : ''
+                      }
+                      isCounting={true}
+                      start={0}
+                      end={numbersSuffix(covidStatics.stats.totalDeaths)}
+                      duration={2.2}
+                      autoResetKey={numbersSuffix(
+                        covidStatics.stats.totalDeaths,
+                      )}
+                    />
+                  ) : (
+                    '00'
+                  )}
                 </Text>
               </View>
             </View>
@@ -169,9 +231,36 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 }}>
                 <Text style={styles.boxHeading}>Recovered</Text>
                 <Text style={styles.numbers}>
-                  {covidStatics
-                    ? `${covidStatics.stats.totalRecoveredCases}`
-                    : '00'}
+                  {covidStatics ? (
+                    <CountUp
+                      thousandsSeparator=","
+                      shouldUseToLocaleString={true}
+                      toLocaleStringParams={{
+                        locale: 'de-DE',
+                        options: {
+                          style: 'currency',
+                          currency: 'EUR',
+                          maximumFractionDigits: 2,
+                        },
+                      }}
+                      fallbackSuffix={
+                        covidStatics.stats.totalRecoveredCases >= 1000
+                          ? 'K'
+                          : ''
+                      }
+                      isCounting={true}
+                      start={0}
+                      end={numbersSuffix(
+                        covidStatics.stats.totalRecoveredCases,
+                      )}
+                      duration={2.2}
+                      autoResetKey={numbersSuffix(
+                        covidStatics.stats.totalRecoveredCases,
+                      )}
+                    />
+                  ) : (
+                    '00'
+                  )}
                 </Text>
               </View>
               <View
@@ -185,9 +274,36 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 }}>
                 <Text style={styles.boxHeading}>Active</Text>
                 <Text style={styles.numbers}>
-                  {covidStatics
-                    ? `${covidStatics.stats.newlyConfirmedCases}`
-                    : '00'}
+                  {covidStatics ? (
+                    <CountUp
+                      thousandsSeparator=","
+                      shouldUseToLocaleString={true}
+                      toLocaleStringParams={{
+                        locale: 'de-DE',
+                        options: {
+                          style: 'currency',
+                          currency: 'EUR',
+                          maximumFractionDigits: 2,
+                        },
+                      }}
+                      fallbackSuffix={
+                        covidStatics.stats.newlyConfirmedCases >= 1000
+                          ? 'K'
+                          : ''
+                      }
+                      isCounting={true}
+                      start={0}
+                      end={numbersSuffix(
+                        covidStatics.stats.newlyConfirmedCases,
+                      )}
+                      duration={2.2}
+                      autoResetKey={numbersSuffix(
+                        covidStatics.stats.totalConfirmedCases,
+                      )}
+                    />
+                  ) : (
+                    '00'
+                  )}
                 </Text>
               </View>
               <View
@@ -201,9 +317,42 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 }}>
                 <Text style={styles.boxHeading}>Serious</Text>
                 <Text style={styles.numbers}>
-                  {covidStatics
-                    ? `${Math.ceil(((covidStatics.stats.newlyConfirmedCases)*10)/100)}`
-                    : '00'}
+                  {covidStatics ? (
+                    <CountUp
+                      thousandsSeparator=","
+                      shouldUseToLocaleString={true}
+                      toLocaleStringParams={{
+                        locale: 'de-DE',
+                        options: {
+                          style: 'currency',
+                          currency: 'EUR',
+                          maximumFractionDigits: 2,
+                        },
+                      }}
+                      fallbackSuffix={
+                        Math.ceil(
+                          (covidStatics.stats.newlyConfirmedCases * 10) / 100,
+                        ) >= 1000
+                          ? 'K'
+                          : ''
+                      }
+                      isCounting={true}
+                      start={0}
+                      end={numbersSuffix(
+                        Math.ceil(
+                          (covidStatics.stats.newlyConfirmedCases * 10) / 100,
+                        ),
+                      )}
+                      duration={2.2}
+                      autoResetKey={numbersSuffix(
+                        Math.ceil(
+                          (covidStatics.stats.newlyConfirmedCases * 10) / 100,
+                        ),
+                      )}
+                    />
+                  ) : (
+                    '00'
+                  )}
                 </Text>
               </View>
             </View>
@@ -247,7 +396,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   numbers: {
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: '700',
     color: '#fff',
   },
