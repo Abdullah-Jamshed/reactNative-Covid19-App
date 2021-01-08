@@ -53,8 +53,9 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
 
   const numbersSuffix = (digitsValue) => {
     if (digitsValue >= 1000) {
-      const value = Math.round(digitsValue / 1000);
-      return value;
+      const value = digitsValue / 1000;
+      const finalValue = value >= 1000 ? value / 1000 : value;
+      return Math.round(finalValue);
     } else {
       const value = Math.ceil(digitsValue);
       return value;
@@ -62,7 +63,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
   };
 
   useEffect(() => {
-    covidStatics && console.log(covidStatics.totalConfirmedCases);
+    covidStatics && console.log(covidStatics);
   }, [covidStatics]);
 
   useEffect(() => {
@@ -75,7 +76,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
 
   useEffect(() => {
     fetchCovidData();
-    console.log(location);
   }, [location]);
 
   return (
@@ -143,7 +143,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 <Text style={styles.numbers}>
                   {covidStatics ? (
                     <CountUp
-                      thousandsSeparator=","
+                      // thousandsSeparator=","
                       shouldUseToLocaleString={true}
                       toLocaleStringParams={{
                         locale: '',
@@ -154,9 +154,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                         },
                       }}
                       fallbackSuffix={
-                        covidStatics.stats.totalConfirmedCases >= 1000
+                        covidStatics.stats.totalConfirmedCases < 1000
+                          ? ''
+                          : covidStatics.stats.totalConfirmedCases / 1000 < 1000
                           ? 'K'
-                          : ''
+                          : 'M'
                       }
                       isCounting={true}
                       start={0}
@@ -197,7 +199,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                         },
                       }}
                       fallbackSuffix={
-                        covidStatics.stats.totalDeaths >= 1000 ? 'K' : ''
+                        covidStatics.stats.totalDeaths < 1000
+                          ? ''
+                          : covidStatics.stats.totalDeaths / 1000 < 1000
+                          ? 'K'
+                          : 'M'
                       }
                       isCounting={true}
                       start={0}
@@ -236,17 +242,15 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       thousandsSeparator=","
                       shouldUseToLocaleString={true}
                       toLocaleStringParams={{
-                        locale: 'de-DE',
-                        options: {
-                          style: 'currency',
-                          currency: 'EUR',
-                          maximumFractionDigits: 2,
-                        },
+                        locale: '',
+                        options: {},
                       }}
                       fallbackSuffix={
-                        covidStatics.stats.totalRecoveredCases >= 1000
+                        covidStatics.stats.totalRecoveredCases < 1000
+                          ? ''
+                          : covidStatics.stats.totalRecoveredCases / 1000 < 1000
                           ? 'K'
-                          : ''
+                          : 'M'
                       }
                       isCounting={true}
                       start={0}
@@ -287,9 +291,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                         },
                       }}
                       fallbackSuffix={
-                        covidStatics.stats.newlyConfirmedCases >= 1000
+                        covidStatics.stats.newlyConfirmedCases < 1000
+                          ? ''
+                          : covidStatics.stats.newlyConfirmedCases / 1000 < 1000
                           ? 'K'
-                          : ''
+                          : 'M'
                       }
                       isCounting={true}
                       start={0}
@@ -332,9 +338,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       fallbackSuffix={
                         Math.ceil(
                           (covidStatics.stats.newlyConfirmedCases * 10) / 100,
-                        ) >= 1000
+                        ) < 1000
+                          ? ''
+                          : covidStatics.stats.newlyConfirmedCases / 1000 < 1000
                           ? 'K'
-                          : ''
+                          : 'M'
                       }
                       isCounting={true}
                       start={0}
