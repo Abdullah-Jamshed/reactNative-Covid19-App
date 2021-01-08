@@ -191,12 +191,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       thousandsSeparator=","
                       shouldUseToLocaleString={true}
                       toLocaleStringParams={{
-                        locale: 'de-DE',
-                        options: {
-                          style: 'currency',
-                          currency: 'EUR',
-                          maximumFractionDigits: 2,
-                        },
+                        locale: '',
+                        options: {},
                       }}
                       fallbackSuffix={
                         covidStatics.stats.totalDeaths < 1000
@@ -283,12 +279,8 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                       thousandsSeparator=","
                       shouldUseToLocaleString={true}
                       toLocaleStringParams={{
-                        locale: 'de-DE',
-                        options: {
-                          style: 'currency',
-                          currency: 'EUR',
-                          maximumFractionDigits: 2,
-                        },
+                        locale: '',
+                        options: {},
                       }}
                       fallbackSuffix={
                         covidStatics.stats.newlyConfirmedCases < 1000
@@ -327,14 +319,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                     <CountUp
                       thousandsSeparator=","
                       shouldUseToLocaleString={true}
-                      toLocaleStringParams={{
-                        locale: 'de-DE',
-                        options: {
-                          style: 'currency',
-                          currency: 'EUR',
-                          maximumFractionDigits: 2,
-                        },
-                      }}
+                      toLocaleStringParams={{}}
                       fallbackSuffix={
                         Math.ceil(
                           (covidStatics.stats.newlyConfirmedCases * 10) / 100,
@@ -367,6 +352,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
           </View>
         </View>
         <View style={styles.lower}>
+          <Text>Statistic</Text>
           <Text>Statistic</Text>
           <Image
             source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
