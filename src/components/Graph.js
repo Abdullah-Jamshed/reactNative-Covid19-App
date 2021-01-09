@@ -42,35 +42,57 @@ const history = [
   {
     confirmed: 88867633,
     date: '2021-01-09',
-    deaths: 1924251,
+    deaths: 1921845,
     recovered: 53672217,
   },
 ];
 
 const Graph = () => {
   const [confirmedCasesData, setConfirmedCasesData] = useState(null);
+  const [recoveredCasesData, setRecoveredCasesData] = useState(null);
+  const [deathCasesData, setDeathCasesData] = useState(null);
 
   const comfirmedCases = () => {
     if (history) {
       const confirmedCase = history.map((obj) => {
-        return {x: obj.date, y: obj.confirmed};
+        return {x: obj.date, y: obj.confirmed / 1000};
       });
 
       setConfirmedCasesData(confirmedCase);
     }
   };
+  const deathCases = () => {
+    if (history) {
+      const deathCase = history.map((obj) => {
+        return {x: obj.date, y: obj.deaths / 1000};
+      });
+
+      setDeathCasesData(deathCase);
+    }
+  };
+  const recoveredCases = () => {
+    if (history) {
+      const recoveredCase = history.map((obj) => {
+        return {x: obj.date, y: obj.recovered / 1000};
+      });
+
+      setRecoveredCasesData(recoveredCase);
+    }
+  };
 
   useEffect(() => {
     comfirmedCases();
+    deathCases();
+    recoveredCases();
   }, [history]);
 
   return (
     <View style={styles.container}>
       <VictoryChart width={350} theme={VictoryTheme.material}>
         <VictoryStack colorScale={['tomato', 'orange', 'gold']}>
+          <VictoryBar data={deathCasesData} alignment="start" />
           <VictoryBar data={confirmedCasesData} alignment="start" />
-          <VictoryBar data={confirmedCasesData} alignment="start" />
-          <VictoryBar data={confirmedCasesData} alignment="start" />
+          <VictoryBar data={recoveredCasesData} alignment="start" />
           {/* <VictoryBar
             data={[
               {x: '2021-01-05', y: 86329},
