@@ -19,7 +19,8 @@ const Dropdown = ({openMenu, location, flagName}) => {
         }}>
         <View
           style={{
-            padding: 3,
+            padding: 2,
+            backgroundColor: '#5a17b0',
             borderRadius: 100,
           }}>
           {location === 'global' ? (

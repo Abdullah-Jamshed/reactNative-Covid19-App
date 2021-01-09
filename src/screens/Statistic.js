@@ -15,6 +15,7 @@ import {
 
 import {Menu, Divider} from 'react-native-paper';
 import Dropdown from '../components/Dropdown';
+import Graph from '../components/Graph';
 
 import {connect} from 'react-redux';
 import {closeMenu, locationSet} from '../store/actions/subRedcuerActions';
@@ -71,11 +72,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
   }, []);
 
   useEffect(() => {
-    fetchCountriesList();
+    // fetchCountriesList();
   }, []);
 
   useEffect(() => {
-    fetchCovidData();
+    // fetchCovidData();
   }, [location]);
 
   return (
@@ -352,11 +353,38 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
           </View>
         </View>
         <View style={styles.lower}>
-          <Text>Statistic</Text>
-          <Image
-            source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
-            style={{width: 60, height: 60}}
-          />
+          <ScrollView
+            contentContainerStyle={{
+              // height: 300,
+              padding: 20,
+              // backgroundColor: 'green',
+              borderTopLeftRadius: 40,
+              borderTopRightRadius: 40,
+            }}>
+            <View style={{}}>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Text>Statistic</Text>
+              <Image
+                source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
+                style={{width: 60, height: 60}}
+              />
+            </View>
+          </ScrollView>
         </View>
       </View>
       {/* </ScrollView> */}
@@ -368,17 +396,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#5a17b0',
+    // backgroundColor: '#fff',
   },
   upper: {
     backgroundColor: '#5a17b0',
     paddingHorizontal: 20,
+    // borderBottomRightRadius: -40,
+    // borderBottomLeftRadius: -40,
   },
   lower: {
+    flex: 1,
     height: '100%',
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    padding: 20,
+    // paddingLeft: 15,
+    // paddingTop: 10,
   },
   heading: {
     fontSize: 25,
@@ -389,7 +422,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   numbers: {
-    fontSize: 19,
+    fontSize: 20,
     fontWeight: '700',
     color: '#fff',
   },
