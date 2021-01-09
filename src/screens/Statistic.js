@@ -381,6 +381,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 style={{width: 60, height: 60}}
               /> */}
               <Text>statistic</Text>
+              <Text>statistic</Text>
             </View>
           </ScrollView>
         </View>
