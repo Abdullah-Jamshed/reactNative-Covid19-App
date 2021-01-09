@@ -380,6 +380,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
                 style={{width: 60, height: 60}}
               /> */}
+              <Text>statistic</Text>
             </View>
           </ScrollView>
         </View>
