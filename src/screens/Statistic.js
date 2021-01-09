@@ -28,12 +28,15 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
 
   const [covidStatics, setCovidStatics] = useState(null);
 
+  const [history, setHistory] = useState(null);
+
   const fetchCountriesList = async () => {
     const {data} = await countryListApi.get(
       '/all?fields=name;alpha2Code;flag;',
     );
     setCountriesList(data);
   };
+
   const fetchCovidData = async () => {
     if (location === 'global') {
       try {
@@ -52,6 +55,14 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
     }
   };
 
+  const historyOfCovid = () => {
+    covidStatics &&
+      setHistory(
+        covidStatics.stats.history.slice(covidStatics.stats.history.length - 5),
+        covidStatics.stats.history.length,
+      );
+  };
+
   const numbersSuffix = (digitsValue) => {
     if (digitsValue >= 1000) {
       const value = digitsValue / 1000;
@@ -64,7 +75,7 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
   };
 
   useEffect(() => {
-    covidStatics && console.log(covidStatics);
+    historyOfCovid();
   }, [covidStatics]);
 
   useEffect(() => {
@@ -362,23 +373,9 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
               borderTopRightRadius: 40,
             }}>
             <View style={{}}>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
-              <Text>Statistic</Text>
+              <View>
+                <Graph history={history} />
+              </View>
               <Image
                 source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
                 style={{width: 60, height: 60}}
@@ -406,12 +403,13 @@ const styles = StyleSheet.create({
   },
   lower: {
     flex: 1,
-    height: '100%',
+    // height: '100%',
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
     // paddingLeft: 15,
-    // paddingTop: 10,
+    paddingTop: 10,
+    // backgroundColor:"red"
   },
   heading: {
     fontSize: 25,

@@ -1,25 +1,93 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {VictoryBar, VictoryChart, VictoryTheme} from 'victory-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, View, Button} from 'react-native';
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryTheme,
+  VictoryStack,
+} from 'victory-native';
 
-const data = [
-  {quarter: 1, earnings: 13000},
-  {quarter: 2, earnings: 16500},
-  {quarter: 3, earnings: 14250},
-  {quarter: 4, earnings: 19000},
+const data = [{x: 'a', y: 5616}, {x: 'b', y: 89000}, , {x: 'c', y: 53000}];
+const data1 = [
+  {x: 'v', y: 13000},
+  {x: 's', y: 16500},
+  {x: 'x', y: 14250},
 ];
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <VictoryChart width={350} theme={VictoryTheme.material}>
-          <VictoryBar data={data} x="quarter" y="earnings" />
-        </VictoryChart>
-      </View>
-    );
-  }
-}
+const history = [
+  {
+    confirmed: 86329261,
+    date: '2021-01-05',
+    deaths: 1877503,
+    recovered: 51298160,
+  },
+  {
+    confirmed: 87120499,
+    date: '2021-01-06',
+    deaths: 1892648,
+    recovered: 52957167,
+  },
+  {
+    confirmed: 87969643,
+    date: '2021-01-07',
+    deaths: 1907362,
+    recovered: 53294752,
+  },
+  {
+    confirmed: 88742817,
+    date: '2021-01-08',
+    deaths: 1921868,
+    recovered: 53587617,
+  },
+  {
+    confirmed: 88867633,
+    date: '2021-01-09',
+    deaths: 1924251,
+    recovered: 53672217,
+  },
+];
+
+const Graph = () => {
+  const [confirmedCasesData, setConfirmedCasesData] = useState(null);
+
+  const comfirmedCases = () => {
+    if (history) {
+      const confirmedCase = history.map((obj) => {
+        return {x: obj.date, y: obj.confirmed};
+      });
+
+      setConfirmedCasesData(confirmedCase);
+    }
+  };
+
+  useEffect(() => {
+    comfirmedCases();
+  }, [history]);
+
+  return (
+    <View style={styles.container}>
+      <VictoryChart width={350} theme={VictoryTheme.material}>
+        <VictoryStack colorScale={['tomato', 'orange', 'gold']}>
+          <VictoryBar data={confirmedCasesData} alignment="start" />
+          <VictoryBar data={confirmedCasesData} alignment="start" />
+          <VictoryBar data={confirmedCasesData} alignment="start" />
+          {/* <VictoryBar
+            data={[
+              {x: '2021-01-05', y: 86329},
+              {x: '2021-01-06', y: 87120},
+              {x: '2021-01-07', y: 87969},
+              {x: '2021-01-08', y: 88742},
+              {x: '2021-01-09', y: 88867},
+            ]}
+            alignment="start"
+          /> */}
+        </VictoryStack>
+      </VictoryChart>
+    </View>
+  );
+};
+
+export default Graph;
 
 const styles = StyleSheet.create({
   container: {
