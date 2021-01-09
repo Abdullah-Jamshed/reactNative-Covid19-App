@@ -382,7 +382,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
               /> */}
               <Text>statistic</Text>
               <Text>statistic</Text>
-              <Text>statistic</Text>
             </View>
           </ScrollView>
         </View>
