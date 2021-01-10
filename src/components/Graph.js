@@ -132,9 +132,6 @@ const Graph = ({history}) => {
               tickLabels: {
                 fontSize: 11,
                 padding: 3,
-                // angle: 30,
-                // verticalAnchor: 'start',
-                // textAnchor: 'start',
               },
             }}
           />
@@ -151,6 +148,7 @@ const Graph = ({history}) => {
               alignment="start"
             />
             <VictoryBar
+              barWidth={10}
               data={recoveredCasesData}
               style={{data: {fill: 'purple'}}}
               alignment="start"
