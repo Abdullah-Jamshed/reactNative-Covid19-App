@@ -10,13 +10,6 @@ import {
   VictoryGroup,
 } from 'victory-native';
 
-const data = [{x: 'a', y: 5616}, {x: 'b', y: 89000}, , {x: 'c', y: 53000}];
-const data1 = [
-  {x: 'v', y: 13000},
-  {x: 's', y: 16500},
-  {x: 'x', y: 14250},
-];
-
 const Graph = ({history}) => {
   const [confirmedCasesData, setConfirmedCasesData] = useState(null);
   const [recoveredCasesData, setRecoveredCasesData] = useState(null);
