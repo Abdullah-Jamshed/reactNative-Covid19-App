@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
   },
   testContainer: {
     flexDirection: 'row',
-    // flexWrap:"wrap",
     backgroundColor: '#5a17b0',
     marginTop: 40,
     justifyContent: 'center',
