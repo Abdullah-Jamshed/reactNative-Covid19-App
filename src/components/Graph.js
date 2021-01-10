@@ -17,39 +17,6 @@ const data1 = [
   {x: 'x', y: 14250},
 ];
 
-// const history = [
-//   {
-//     confirmed: 86329261,
-//     date: '2021-01-05',
-//     deaths: 1877503,
-//     recovered: 51298160,
-//   },
-//   {
-//     confirmed: 87120499,
-//     date: '2021-01-06',
-//     deaths: 1892648,
-//     recovered: 52957167,
-//   },
-//   {
-//     confirmed: 87969643,
-//     date: '2021-01-07',
-//     deaths: 1907362,
-//     recovered: 53294752,
-//   },
-//   {
-//     confirmed: 88742817,
-//     date: '2021-01-08',
-//     deaths: 1921868,
-//     recovered: 53587617,
-//   },
-//   {
-//     confirmed: 88867633,
-//     date: '2021-01-09',
-//     deaths: 1921845,
-//     recovered: 53672217,
-//   },
-// ];
-
 const Graph = ({history}) => {
   const [confirmedCasesData, setConfirmedCasesData] = useState(null);
   const [recoveredCasesData, setRecoveredCasesData] = useState(null);
