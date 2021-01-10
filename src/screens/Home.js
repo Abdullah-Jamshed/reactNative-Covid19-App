@@ -113,15 +113,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   upper: {
-    // flex: 5,
     backgroundColor: '#5a17b0',
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     paddingHorizontal: 20,
   },
   lower: {
-    // flex: 1,
-    // backgroundColor: '#dfdf',
     padding: 20,
   },
   heading: {
