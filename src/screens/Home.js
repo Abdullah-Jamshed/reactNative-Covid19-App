@@ -52,7 +52,7 @@ const Home = () => {
               }}>
               <View style={{alignItems: 'center', width: 80}}>
                 <Image
-                  source={require('../assests/a.png')}
+                  source={require('../assests/distance.png')}
                   style={{width: 70, height: 70}}
                 />
                 <Text
