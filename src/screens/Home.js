@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  SafeAreaView,
   View,
   Text,
   TouchableOpacity,
@@ -11,10 +10,7 @@ import {
 
 import {Paragraph as RPParagraph, Text as RPText} from 'react-native-paper';
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import Header from '../components/Header';
 
 const Home = () => {
   return (
