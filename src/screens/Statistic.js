@@ -93,10 +93,6 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
 
   return (
     <>
-      {/* <ScrollView
-        contentContainerStyle={{
-          flex: 1,
-        }}> */}
       <View style={styles.container}>
         <View style={styles.upper}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -367,25 +363,16 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
         <View style={styles.lower}>
           <ScrollView
             contentContainerStyle={{
-              // height: 300,
               padding: 20,
-              // backgroundColor: 'green',
               borderTopLeftRadius: 40,
               borderTopRightRadius: 40,
             }}>
             <View style={{}}>
-              <View>
-                <Graph history={history} />
-              </View>
-              {/* <Image
-                source={{uri: 'https://www.countryflags.io/pk/shiny/64.png'}}
-                style={{width: 60, height: 60}}
-              /> */}
+              <Graph history={history} />
             </View>
           </ScrollView>
         </View>
       </View>
-      {/* </ScrollView> */}
     </>
   );
 };
