@@ -95,21 +95,7 @@ const Graph = ({history}) => {
   return (
     <View style={styles.container}>
       {history && (
-        <VictoryChart
-          style={{
-            parent: {
-              // border: '1px solid #ccc',
-            },
-            background: {
-              // fill: '',
-            },
-          }}
-          width={350}
-          theme={VictoryTheme.material}
-          // domainPadding={{x: 10}}
-          // domain={{y: [0]}}
-          // animate={1000}
-        >
+        <VictoryChart width={350} theme={VictoryTheme.material}>
           <VictoryAxis
             tickFormat={(t) =>
               t > 999999
