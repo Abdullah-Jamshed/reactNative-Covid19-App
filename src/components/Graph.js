@@ -135,7 +135,6 @@ const Graph = ({history}) => {
               },
             }}
           />
-          {/* <VictoryStack> */}
           <VictoryGroup offset={15} colorScale={'qualitative'}>
             <VictoryBar
               data={deathCasesData}
@@ -202,17 +201,8 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#f5fcff',
   },
 });
-
-// maxDomain={{y: 80000}}
-// minDomain={{y: 0}}
-
-// domain={{
-//    x: [0, 1, 2, 3, 4, 5, 6],
-//    y: [0, 100, 200, 50000, 75000, 99999],
-// }}
 
 const myDataset = [
   [
@@ -266,4 +256,3 @@ const Graph2 = () => {
   );
 };
 
-// export default Graph2;
