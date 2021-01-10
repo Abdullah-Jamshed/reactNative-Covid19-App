@@ -376,23 +376,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#5a17b0',
-    // backgroundColor: '#fff',
   },
   upper: {
     backgroundColor: '#5a17b0',
     paddingHorizontal: 20,
-    // borderBottomRightRadius: -40,
-    // borderBottomLeftRadius: -40,
   },
   lower: {
     flex: 1,
-    // height: '100%',
     backgroundColor: '#fff',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    // paddingLeft: 15,
     paddingTop: 10,
-    // backgroundColor:"red"
   },
   heading: {
     fontSize: 25,
