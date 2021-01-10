@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
   VictoryBar,
   VictoryChart,
   VictoryTheme,
-  VictoryStack,
-  VictoryLabel,
   VictoryAxis,
   VictoryGroup,
 } from 'victory-native';
