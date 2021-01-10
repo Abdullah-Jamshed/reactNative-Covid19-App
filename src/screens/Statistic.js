@@ -152,15 +152,10 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
                 <Text style={styles.numbers}>
                   {covidStatics ? (
                     <CountUp
-                      // thousandsSeparator=","
                       shouldUseToLocaleString={true}
                       toLocaleStringParams={{
                         locale: '',
-                        options: {
-                          // style: '',
-                          // currency: '',
-                          // maximumFractionDigits: 2,
-                        },
+                        options: {},
                       }}
                       fallbackSuffix={
                         covidStatics.stats.totalConfirmedCases < 1000
