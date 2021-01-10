@@ -7,16 +7,14 @@ import {
   SafeAreaView,
   View,
   Text,
-  Image,
   Button as BB,
   FlatList,
   LogBox,
 } from 'react-native';
 
-import {Menu, Divider} from 'react-native-paper';
+import {Menu} from 'react-native-paper';
 import Dropdown from '../components/Dropdown';
 import Graph from '../components/Graph';
-import Graph2 from '../components/Graph';
 
 import {connect} from 'react-redux';
 import {closeMenu, locationSet} from '../store/actions/subRedcuerActions';
