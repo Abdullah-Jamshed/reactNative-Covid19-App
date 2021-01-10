@@ -16,6 +16,7 @@ import {
 import {Menu, Divider} from 'react-native-paper';
 import Dropdown from '../components/Dropdown';
 import Graph from '../components/Graph';
+import Graph2 from '../components/Graph';
 
 import {connect} from 'react-redux';
 import {closeMenu, locationSet} from '../store/actions/subRedcuerActions';
@@ -83,11 +84,11 @@ const Statistic = ({menuFlag, closeMenu, locationSetValue, location}) => {
   }, []);
 
   useEffect(() => {
-    // fetchCountriesList();
+    fetchCountriesList();
   }, []);
 
   useEffect(() => {
-    // fetchCovidData();
+    fetchCovidData();
   }, [location]);
 
   return (
