@@ -5,6 +5,8 @@ import {
   VictoryChart,
   VictoryTheme,
   VictoryStack,
+  VictoryLabel,
+  VictoryAxis,
 } from 'victory-native';
 
 const data = [{x: 'a', y: 5616}, {x: 'b', y: 89000}, , {x: 'c', y: 53000}];
@@ -55,7 +57,7 @@ const Graph = () => {
   const comfirmedCases = () => {
     if (history) {
       const confirmedCase = history.map((obj) => {
-        return {x: obj.date, y: obj.confirmed / 1000};
+        return {x: obj.date, y: Math.round(obj.confirmed / 1000)};
       });
 
       setConfirmedCasesData(confirmedCase);
@@ -64,7 +66,7 @@ const Graph = () => {
   const deathCases = () => {
     if (history) {
       const deathCase = history.map((obj) => {
-        return {x: obj.date, y: obj.deaths / 1000};
+        return {x: obj.date, y: Math.round(obj.deaths / 1000)};
       });
 
       setDeathCasesData(deathCase);
@@ -73,10 +75,11 @@ const Graph = () => {
   const recoveredCases = () => {
     if (history) {
       const recoveredCase = history.map((obj) => {
-        return {x: obj.date, y: obj.recovered / 1000};
+        return {x: obj.date, y: Math.round(obj.recovered / 1000)};
       });
 
       setRecoveredCasesData(recoveredCase);
+      console.log(recoveredCase);
     }
   };
 
@@ -88,23 +91,20 @@ const Graph = () => {
 
   return (
     <View style={styles.container}>
-      <VictoryChart width={350} theme={VictoryTheme.material}>
-        <VictoryStack colorScale={['tomato', 'orange', 'gold']}>
-          <VictoryBar data={deathCasesData} alignment="start" />
-          <VictoryBar data={confirmedCasesData} alignment="start" />
-          <VictoryBar data={recoveredCasesData} alignment="start" />
-          {/* <VictoryBar
-            data={[
-              {x: '2021-01-05', y: 86329},
-              {x: '2021-01-06', y: 87120},
-              {x: '2021-01-07', y: 87969},
-              {x: '2021-01-08', y: 88742},
-              {x: '2021-01-09', y: 88867},
-            ]}
-            alignment="start"
-          /> */}
-        </VictoryStack>
-      </VictoryChart>
+      {history && (
+        <VictoryChart
+          // maxDomain={{y: 80000}}
+          // minDomain={{y: 0}}
+          width={350}
+          theme={VictoryTheme.material}
+          domainPadding={{x: 10}}>
+          <VictoryStack colorScale={['tomato', 'orange', 'gold']}>
+            <VictoryBar data={deathCasesData} alignment="start" />
+            <VictoryBar data={confirmedCasesData} alignment="start" />
+            <VictoryBar data={recoveredCasesData} alignment="start" />
+          </VictoryStack>
+        </VictoryChart>
+      )}
     </View>
   );
 };
@@ -119,3 +119,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5fcff',
   },
 });
+
+
+
+// domain={{
+//    x: [0, 1, 2, 3, 4, 5, 6],
+//    y: [0, 100, 200, 50000, 75000, 99999],
+// }}
